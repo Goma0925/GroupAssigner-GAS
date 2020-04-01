@@ -23,6 +23,22 @@ function DataLoader(){
     return dataObj;
   };
 
+  this.loadAttributeHeaders = function(sheet, dataRange){
+    var rawMatrix = sheet.getRange(dataRange).getValues();
+    var headers;
+    try{
+      headers = rawMatrix[0];
+    }catch(e){
+      throw e;
+    };
+    var attributeHeaders = headers.slice(this.profileAttrStartColIndex);
+    return attributeHeaders.filter(function (el) {
+      if (el !==""){
+        return el;
+      };
+    });;
+  };
+
   this.loadMembers = function(sheet, dataRange){
     //スプシのデータをPersonオブジェクトの配列で読み込む関数
     var allUsers = [];
