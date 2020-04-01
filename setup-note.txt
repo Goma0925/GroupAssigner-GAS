@@ -1,0 +1,8 @@
+//npmをインストール
+1. Claspをnpmを使ってインストール。詳細はこちら：https://developers.google.com/apps-script/guides/clasp
+2. https://script.google.com/u/1/home/usersettings　からGoogle Apps Script APIをオンにする。
+
+使い方：
+clasp clone <script file ID>
+clasp pull
+clasp push
