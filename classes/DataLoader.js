@@ -1,9 +1,9 @@
 function DataLoader(){
-  this.includeFlagColIndex = 2;
-  this.profileAttrStartColIndex = 3;
-
+  this.includeFlagColIndex = 2; //ユーザーデータを読み込むかどうかを設定する行のインデックス番号。一行目を０とする。この行にはTRUE/FALSEを指定する。
+  this.profileAttrStartColIndex = 3; //this.loadMembers（）を実行した際に、Person.profileに入れるデータ行を指定する。指定されたインデックスから右の行を全てPersonprofileに読み込む。ただし、一番上の見出しがない行は読み込まない。
+  
   this.loadCols = function(sheet, dataRange){
-    //{カラム見出し：[データ]}でデータを読み込む関数
+    //{カラム見出し：[データ]}オブジェクト形式でデータを読み込む関数。この関数は使われていません。
     var rawMatrix = sheet.getRange(dataRange).getValues();
     var dataObj = {};
     var headers;
@@ -12,7 +12,7 @@ function DataLoader(){
     }catch(e){
       throw e;
     }
-
+    
     for (var colNum=0; colNum<headers.length; colNum++){
       var colValues = [];
       for (var rowNum=1; rowNum<rawMatrix.length; rowNum++){
@@ -22,8 +22,9 @@ function DataLoader(){
     };
     return dataObj;
   };
-
+  
   this.loadAttributeHeaders = function(sheet, dataRange){
+    //dataRangeで指定された、スプシの一番上の列(row)を配列で取得する関数
     var rawMatrix = sheet.getRange(dataRange).getValues();
     var headers;
     try{
@@ -38,19 +39,16 @@ function DataLoader(){
       };
     });;
   };
-
+  
   this.loadMembers = function(sheet, dataRange){
     //スプシのデータをPersonオブジェクトの配列で読み込む関数
     var allUsers = [];
     var rawMatrix = sheet.getRange(dataRange).getValues();
-    var headers;
-    try{
-      headers = rawMatrix[0];
-    }catch(e){
-      throw e;
-    }
+    
     //Convert the spreadsheet data into a list of Person();
-    var attributeHeaders = headers.slice(this.profileAttrStartColIndex);
+    var attributeHeaders = this.loadAttributeHeaders(sheet, dataRange);
+    Logger.log("attributeHeaders")
+    Logger.log(attributeHeaders);
     var includeThisMember = null;
     for (var rowNum=1; rowNum<rawMatrix.length; rowNum++){
       includeThisMember = rawMatrix[rowNum][this.includeFlagColIndex] === "TRUE";
@@ -67,6 +65,7 @@ function DataLoader(){
         allUsers.push(person);
       };
     };
+    
     return allUsers;
   };
 };

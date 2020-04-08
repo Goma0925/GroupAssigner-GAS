@@ -3,12 +3,13 @@ function test(){
   var loader = new DataLoader();
   var memberDataSheetName = "スクリプト用データベース"
   var userDataSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(memberDataSheetName);
-  var significanceScale = loader.loadAttributeHeaders(userDataSheet, "A1:G104");
+  var dataRange = "A1:Z104"
+  var significanceScale = loader.loadAttributeHeaders(userDataSheet, dataRange);
   Logger.log("significanceScale: ["+significanceScale+"]");
   //-----Settings END-------
 
   //Get Members
-  allMembers = loader.loadMembers(userDataSheet, "A1:G104");
+  allMembers = loader.loadMembers(userDataSheet, dataRange);
   testPreSelectedGroupMembers = allMembers.slice(5, 8);
 
   var processor = new Processor();
@@ -19,7 +20,7 @@ function test(){
   var logMessage = "nonMatchMembers:\n";
   for (var i=0; i<nonMatchMembers.length;i++){
     logMessage +=  "index="+i+": ["+ nonMatchMembers[i].join() + "]\n";
-    Sp.log(1+i, "nonMatchMembers["+i+"]: [", nonMatchMembers[i].join() + "]");
+    Sp.log(1+i, "nonMatchMembers["+i+"]", "["+nonMatchMembers[i].join() + "]");
   };
   Logger.log(logMessage);
 };
