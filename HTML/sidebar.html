@@ -2,8 +2,18 @@
 <html>
 <head>
   <base target="_top">
-  <!-- ///<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous"> -->
   <style media="screen">
+  .yellow{
+    background: yellow;
+  }
+
+  .blue{
+    background: DodgerBlue;
+  }
+
+  .red{
+    background: red;
+  }
   /* The container must be positioned relative: */
   .custom-select {
   position: relative;
@@ -15,11 +25,11 @@
   }
 
   .select-selected {
-    background-color: blue;
+    /* background-color: grey; */
   }
 
   /* Style the arrow inside the select element: */
-  .select-selected:after {
+  .+:after {
   position: absolute;
   content: "";
   top: 14px;
@@ -31,30 +41,18 @@
   }
 
   /* Point the arrow upwards when the select box is open (active): */
-  .select-selected.select-arrow-active:after {
+  .+.select-arrow-active:after {
   border-color: transparent transparent #fff transparent;
   top: 7px;
   }
 
   /* style the items (options), including the selected item: */
-  .select-items div,.select-selected {
+  .select-items div,.+ {
   color: #ffffff;
   padding: 8px 16px;
   border: 1px solid transparent;
   border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
   cursor: pointer;
-  }
-
-  .yellow-bg{
-    background-color: yellow;
-  }
-
-  .blue-bg{
-    background-color: blue;
-  }
-
-  .red-bg{
-    background-color: #fc3103;
   }
 
   /* Style items (options): */
@@ -72,321 +70,272 @@
   }
 
   .select-items div:hover, .same-as-selected {
-    /* When you hover over an option of the list */
-    background-color: green;
+  background-color: rgba(0, 0, 0, 0.1);
   }
-  /* --------Grid below ----------*/
+
+  /* Grid layout */
   .grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  background-color: #2196F3;
-  padding: 10px;
+    display: grid;
+    width: 100%
+    grid-row-gap: 50px;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+    overflow: auto;
+    margin-left: 10px;
+    margin-right: 10px;
   }
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
+
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
   }
   </style>
 </head>
-
 <body>
-  <p>Sidebar txt</p>
-  <div class="grid-container">
-    <div class="grid-item">
-      <div class="custom-select" style="width:100%;">
-        <select id="member-choice">
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-          <option value="3">Citroen</option>
-          <option value="4">Ford</option>
-          <option value="5">Honda</option>
-          <option value="6">Jaguar</option>
-          <option value="7">Land Rover</option>
-          <option value="8">Mercedes</option>
-          <option value="9">Mini</option>
-          <option value="10">Nissan</option>
-          <option value="11">Toyota</option>
-          <option value="12">Volvo</option>
-        </select>
-      </div>
+  <div class="grid-container" id="dropdowns">
+      <!-- <div class="grid-item">
+        <div class="custom-select" style="width:200px;">
+          <select>
+            <option value="0">Select car:</option>
+            <option value="1">Audi</option>
+            <option value="2">BMW</option>
+            <option value="3">Citroen</option>
+            <option value="4">Ford</option>
+            <option value="5">Honda</option>
+            <option value="6">Jaguar</option>
+            <option value="7">Land Rover</option>
+            <option value="8">Mercedes</option>
+            <option value="9">Mini</option>
+            <option value="10">Nissan</option>
+            <option value="11">Toyota</option>
+            <option value="12">Volvo</option>
+          </select>
+        </div>
+      </div> -->
     </div>
-    <div class="grid-item">
-      <div class="custom-select" style="width:100%;">
-        <select id="member-choice">
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-          <option value="3">Citroen</option>
-          <option value="4">Ford</option>
-          <option value="5">Honda</option>
-          <option value="6">Jaguar</option>
-          <option value="7">Land Rover</option>
-          <option value="8">Mercedes</option>
-          <option value="9">Mini</option>
-          <option value="10">Nissan</option>
-          <option value="11">Toyota</option>
-          <option value="12">Volvo</option>
-        </select>
-      </div>
-    </div>
-    <div class="grid-item">
-      <div class="custom-select" style="width:100%;">
-        <select id="member-choice">
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-          <option value="3">Citroen</option>
-          <option value="4">Ford</option>
-          <option value="5">Honda</option>
-          <option value="6">Jaguar</option>
-          <option value="7">Land Rover</option>
-          <option value="8">Mercedes</option>
-          <option value="9">Mini</option>
-          <option value="10">Nissan</option>
-          <option value="11">Toyota</option>
-          <option value="12">Volvo</option>
-        </select>
-      </div>
-    </div>
-    <div class="grid-item">
-      <div class="custom-select" style="width:100%;">
-        <select id="member-choice">
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-          <option value="3">Citroen</option>
-          <option value="4">Ford</option>
-          <option value="5">Honda</option>
-          <option value="6">Jaguar</option>
-          <option value="7">Land Rover</option>
-          <option value="8">Mercedes</option>
-          <option value="9">Mini</option>
-          <option value="10">Nissan</option>
-          <option value="11">Toyota</option>
-          <option value="12">Volvo</option>
-        </select>
-      </div>
-    </div>
-    <div class="grid-item">
-      <div class="custom-select" style="width:100%;">
-        <select id="member-choice">
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-          <option value="3">Citroen</option>
-          <option value="4">Ford</option>
-          <option value="5">Honda</option>
-          <option value="6">Jaguar</option>
-          <option value="7">Land Rover</option>
-          <option value="8">Mercedes</option>
-          <option value="9">Mini</option>
-          <option value="10">Nissan</option>
-          <option value="11">Toyota</option>
-          <option value="12">Volvo</option>
-        </select>
-      </div>
-    </div>
-    <div class="grid-item">
-      <div class="custom-select" style="width:100%;">
-        <select id="member-choice">
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-          <option value="3">Citroen</option>
-          <option value="4">Ford</option>
-          <option value="5">Honda</option>
-          <option value="6">Jaguar</option>
-          <option value="7">Land Rover</option>
-          <option value="8">Mercedes</option>
-          <option value="9">Mini</option>
-          <option value="10">Nissan</option>
-          <option value="11">Toyota</option>
-          <option value="12">Volvo</option>
-        </select>
-      </div>
-    </div>
-    <div class="grid-item">
-      <div class="custom-select" style="width:100%;">
-        <select id="member-choice">
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-          <option value="3">Citroen</option>
-          <option value="4">Ford</option>
-          <option value="5">Honda</option>
-          <option value="6">Jaguar</option>
-          <option value="7">Land Rover</option>
-          <option value="8">Mercedes</option>
-          <option value="9">Mini</option>
-          <option value="10">Nissan</option>
-          <option value="11">Toyota</option>
-          <option value="12">Volvo</option>
-        </select>
-      </div>
-    </div>
-    <div class="grid-item">8</div>
-    <div class="grid-item">9</div>
-  </div>
-  <textarea id="text" style="font-size:18pt;"></textarea>
-  <div class="custom-select" style="width:200px;">
-    <select id="member-choice">
-      <option value="0">Select car:</option>
-      <option value="1">Audi</option>
-      <option value="2">BMW</option>
-      <option value="3">Citroen</option>
-      <option value="4">Ford</option>
-      <option value="5">Honda</option>
-      <option value="6">Jaguar</option>
-      <option value="7">Land Rover</option>
-      <option value="8">Mercedes</option>
-      <option value="9">Mini</option>
-      <option value="10">Nissan</option>
-      <option value="11">Toyota</option>
-      <option value="12">Volvo</option>
-    </select>
-  </div>
-  <div class="custom-select" style="width:200px;">
-    <select id="member-choice2">
-      <option value="0">Select car:</option>
-      <option value="1">Audi</option>
-      <option value="2">BMW</option>
-      <option value="3">Citroen</option>
-      <option value="4">Ford</option>
-      <option value="5">Honda</option>
-      <option value="6">Jaguar</option>
-      <option value="7">Land Rover</option>
-      <option value="8">Mercedes</option>
-      <option value="9">Mini</option>
-      <option value="10">Nissan</option>
-      <option value="11">Toyota</option>
-      <option value="12">Volvo</option>
-    </select>
-  </div>
-
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-  // window.onload = function() {
-  //   google.script.run
-  //     .withFailureHandler(onFailure)
-  //     .withSuccessHandler(onSuccess)
-  //     .getText(); //gsファイルの関数にアクセス
-  // }
-  //
-  // function onSuccess(result) {
-  //   document.getElementById("text").value = result;
-  // }
-  //
-  // function onFailure(e) {
-  //   document.getElementById("text").value = "Error";
-  // }
-window.onload = function() {
-  var dropDownController = new customDropDownController();
-  // console.log(dropDownController);
-  dropDownController.initialize();
+function GLOBAL_DATA(){
+  this.colNum;
+  this.allMembers = [];
+  this.nonSelectedMembers = [];
+  this.selectMenuData = [];
+  this.significanceScale = [];
+};
+var GLOBAL_DATA = new GLOBAL_DATA();
 
+window.onload = function(){
+  // loadData();
+  loadTestData();
+  initMenuGrid(".grid-container", GLOBAL_DATA.colNum);
+  createGridItemDivs("#dropdowns", GLOBAL_DATA.allMembers.length, GLOBAL_DATA.colNum);
+  generateSelects(".custom-select", GLOBAL_DATA.nonSelectedMembers);
+  initPulldowns();
+};
+
+
+function loadTestData(){
+  var initialData = testData();
+  GLOBAL_DATA.colNum = initialData.colNum;
+  GLOBAL_DATA.allMembers = initialData.users;
+  GLOBAL_DATA.nonSelectedMembers = initialData.users;
+  for (var attr in initialData["significanceScale"]){
+    GLOBAL_DATA.selectMenuData.push([]);
+  };
+  GLOBAL_DATA.selectMenuData[0] = initialData.users;
+  GLOBAL_DATA.significanceScale = initialData.significanceScale;
+  for (var attr in GLOBAL_DATA){
+    console.log("GLOBAL["+attr+"]", GLOBAL_DATA[attr]);
+  };
 }
-var dropDownController = new customDropDownController();
 
+function loadData(){
+  // var element=document.getElementById("trigger_button");
+  var initialData;
+  //Load data from GAS that reads data from SpreadsheetApp
+  google.script.run
+  .withSuccessHandler(function(jsonStr){
+    console.log("JSON\n"+jsonStr);
+    initialData = JSON.parse(jsonStr);
+  })
+  .withFailureHandler(function(err){
+    alert("データをサーバーからロードできませんでした。");
+    alert(err);
+  })
+  .getInitialData();
+  GLOBAL_DATA.colNum = initialData.colNum;
+  GLOBAL_DATA.allMembers = initialData.users;
+  GLOBAL_DATA.nonSelectedMembers = initialData.users;
+  for (var attr in initialData["significanceScale"]){
+    GLOBAL_DATA.selectMenuData.push([]);
+  };
+  GLOBAL_DATA.selectMenuData[0] = initialData.users;
+  GLOBAL_DATA.significanceScale = initialData.significanceScale;
+  for (var attr in GLOBAL_DATA){
+    console.log("GLOBAL["+attr+"]", GLOBAL_DATA[attr]);
+  };
+};
 
-function customDropDownController(){
-  this.initialize = function(){
-    var blueClassTag = "red-bg";
-    var x, i, j, selElmnt, a, b, c;
-    /* Look for any elements with the class "custom-select": */
-    x = document.getElementsByClassName("custom-select");
-    for (i = 0; i < x.length; i++) {
-      selElmnt = x[i].getElementsByTagName("select")[0];
-      /* For each element, create a new DIV that will act as the selected item: */
-      a = document.createElement("DIV");
-      a.setAttribute("class", "select-selected");
-      a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-      x[i].appendChild(a);
-      /* For each element, create a new DIV that will contain the option list: */
-      b = document.createElement("DIV");
-      b.setAttribute("class", "select-items select-hide");
-      for (j = 1; j < selElmnt.length; j++) {
-        /* For each option in the original select element,
-        create a new DIV that will act as an option item: */
-        optionDiv = document.createElement("DIV");
-        optionDiv.innerHTML = selElmnt.options[j].innerHTML;
-        optionDiv.setAttribute("class", blueClassTag);
-        optionDiv.addEventListener("click", function(e) {
-            /* When an item is clicked, update the original select box,
-            and the selected item: */
-            var selectedDiv, i, k, selectList, newSelectionDiv;
-            selectList = this.parentNode.parentNode.getElementsByTagName("select")[0];
-            newSelectionDiv = this.parentNode.previousSibling;
-            // console.log("newSelectionDiv",newSelectionDiv);
-            for (i = 0; i < selectList.length; i++) {
-              if (selectList.options[i].innerHTML == this.innerHTML) {
-                selectList.selectedIndex = i;
-                newSelectionDiv.innerHTML = this.innerHTML;
-                selectedDiv = this.parentNode.getElementsByClassName("same-as-selected");
-                for (k = 0; k < selectedDiv.length; k++) {
-                  // console.log("selectedDiv",selectedDiv);
-                  var test = selectedDiv[k].setAttribute("class", blueClassTag);///###
-                  // console.log(selectedDiv[k]);
-                  // console.log("test" , test);
-                  //NEXT: optionを色分けする方法を考える - classで色分けはできるようになった。
-                };
-                //this = the div element that is selected
-                this.setAttribute("class", "same-as-selected");
-                this.setAttribute("class", blueClassTag+" same-as-selected");
-                break;
-              }
-            }
-            newSelectionDiv.click();
-        });
-        b.appendChild(optionDiv);
-      }
-      x[i].appendChild(b);
-      a.addEventListener("click", function(e) {
-        /* When the select box is clicked, close any other select boxes,
-        and open/close the current select box: */
-        e.stopPropagation();
-        closeAllSelect(this);
-        this.nextSibling.classList.toggle("select-hide");
-        this.classList.toggle("select-arrow-active");
-      });
+function generateSelects(parentSelector, members){
+  var dropdown ='<select><option value="0">Select car:</option><option value="1" class="yellow" style="background:red;">Audi</option><option value="2">BMW</option></select></div></div>';
+
+  var $selectContainerDivs = $(parentSelector);
+  var optionElements = '<option value="none"> ----- </option>';
+  var optionElement;
+  for (var i=0; i<members.length; i++){
+    optionElement = '<option value="'+members[i].name+'" class="yellow" style="background:red;">'+members[i].name+"</option>";
+    optionElements += optionElement;
+  };
+  console.log("HERE");
+  var child = document.createElement("p");
+  console.log($selectContainerDivs.append("<select></select>").children('select').append(optionElements));
+
+};
+
+function initMenuGrid(containerSelector, colNum){
+  //カラム数を引数に取り、メニューを囲むコンテナにgrid-template-columnsアトリビュートを設定して、カラム数を決定する。
+  var colNumAttr = "";
+  for (var i=0; i<=colNum; i++){
+    colNumAttr += "auto ";
+  };
+  $(containerSelector).css("grid-template-columns", colNumAttr);
+}
+
+function createGridItemDivs(containerSelector, memberNum, colNum){
+  // Select要素を入れるDivを生成する関数。一列目のヘッダも生成する
+  // containerSelector: プルダウンを入れるdivコンテナのセレクタ
+  // memberNum: メンバーの数＝プルダウンを作成する数
+  console.log("createGridItemDivs");
+  for (var i=0; i<=colNum; i++){
+    var header;
+    if (i==0){
+      header= '<div class="grid-item grid-header-empty"></div>'
+    }else{
+      header= '<div class="grid-item grid-header">Group'+(i)+'</div>'
     }
-
-    function closeAllSelect(elmnt) {
-      /* A function that will close all select boxes in the document,
-      except the current select box: */
-      var x, selectedDiv, i, arrNo = [];
-      x = document.getElementsByClassName("select-items");
-      selectedDiv = document.getElementsByClassName("select-selected");
-      for (i = 0; i < selectedDiv.length; i++) {
-        if (elmnt == selectedDiv[i]) {
-          arrNo.push(i)
-        } else {
-          selectedDiv[i].classList.remove("select-arrow-active");
-        }
-      }
-      for (i = 0; i < x.length; i++) {
-        if (arrNo.indexOf(i)) {
-          x[i].classList.add("select-hide");
-        }
-      }
-    }
-    /* If the user clicks anywhere outside the select box,
-    then close all select boxes: */
-    document.addEventListener("click", closeAllSelect);
+    $(containerSelector).append(header);
   }
-  //Function to get a value from a certain drondown
+  //Create divs for 1) Row numbers 2)Select containers
+  var rowIndex = 0;
+  var colIndex = 0;
+  for (var i=0; i<memberNum+colNum;i++){
+    if (i%(colNum+1) == 0){
+      //Create a row number div
+      var cellNumberDiv = '<div class="grid-item">'+(rowIndex+1)+'</div>'
+      $(containerSelector).append(cellNumberDiv);
+      rowIndex++;
+      colIndex = 0;
+    }else{
+      //Crete select container
+      var gridItem = '<div class="grid-item"><div class="custom-select row-'+rowIndex+' column-'+colIndex+' style="width:200px;"></div></div>'
+      $(containerSelector).append(gridItem);
+      colIndex+=1;
+    };
+  };
+}
 
-  this.getSelectedOption = function(selectEleId){
-    // console.log("Target ID:", selectEleId);
-    var e = document.getElementById(selectEleId);
-    // // console.log(e.value);
-    //var value=e.selectElement.options[e.selectedIndex].value;// get selected option value
-    var text=e.options[e.selectedIndex].text;
-    return text;
+
+// ----------------Pull down scripts bellow-----------------
+function initPulldowns(){
+  var x, i, j, selElmnt, selectEleClass, selectedDiv, selectHiddenDiv, selectOptionDiv;
+  var selectedDivClass = "blue"
+  /* Look for any elements with the class "custom-select": */
+  x = document.getElementsByClassName("custom-select");
+  for (i = 0; i < x.length; i++) {
+    selElmnt = x[i].getElementsByTagName("select")[0];
+    /* For each element, create a new DIV that will act as the selected item: */
+    selectedDiv = document.createElement("DIV");
+    selectedDiv.setAttribute("class", "select-selected "+ selectedDivClass);
+    selectedDiv.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+    x[i].appendChild(selectedDiv);
+    /* For each element, create a new DIV that will contain the option list: */
+    selectHiddenDiv = document.createElement("DIV");
+    selectHiddenDiv.setAttribute("class", "select-items select-hide");
+    console.log("selectHiddenDiv:",selectHiddenDiv);
+    for (j = 1; j < selElmnt.length; j++) {
+      /* For each option in the original select element,
+      create a new DIV that will act as an option item: */
+      selectOptionDiv = document.createElement("DIV");
+      selectOptionDiv.innerHTML = selElmnt.options[j].innerHTML;
+      console.log("selElmnt.options[j].getAttribute(class)", selElmnt.options[j].getAttribute("class"));
+      // NEXT
+      selectOptionDiv.setAttribute("class", selElmnt.options[j].getAttribute("class"));
+      console.log("c:", selectOptionDiv);
+      selectOptionDiv.addEventListener("click", function(e) {
+          /* When an item is clicked, update the original select box,
+          and the selected item: */
+          var y, i, k, selectEle, h;
+          console.log("y:", y);
+          selectEle = this.parentNode.parentNode.getElementsByTagName("select")[0];
+          selectEleClass = selectEle.getAttribute("class");
+          h = this.parentNode.previousSibling;
+          console.log("h:", h);
+          for (i = 0; i < selectEle.length; i++) {
+            if (selectEle.options[i].innerHTML == this.innerHTML) {
+              selectEle.selectedIndex = i;
+              h.innerHTML = this.innerHTML;
+              y = this.parentNode.getElementsByClassName("same-as-selected");
+              console.log("y:", y);
+              for (k = 0; k < y.length; k++) {
+                y[k].removeAttribute("class");
+              }
+              this.setAttribute("class", "same-as-selected");
+              break;
+            }
+          }
+          h.click();
+      });
+      selectHiddenDiv.appendChild(selectOptionDiv);
+    }
+    x[i].appendChild(selectHiddenDiv);
+    selectedDiv.addEventListener("click", function(e) {
+      /* When the select box is clicked, close any other select boxes,
+      and open/close the current select box: */
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+      this.classList.toggle("select-arrow-active");
+    });
   }
 };
+
+
+function closeAllSelect(elmnt) {
+  /* A function that will close all select boxes in the document,
+  except the current select box: */
+  var x, y, i, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  for (i = 0; i < y.length; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < x.length; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+/* If the user clicks anywhere outside the select box,
+then close all select boxes: */
+document.addEventListener("click", closeAllSelect);
+
+function testData(){
+  data = '{"colNum":10,"users":[{"id":"1","name":"Yuna Mizutani","profile":{"board":"Yes","department":"執行局","region":"Tokyo","sex":"0","non-STEM":"1"}},{"id":"3","name":"Nao Tanaka","profile":{"board":"Yes","department":"プログラム室","region":"Obuse","sex":"1","non-STEM":"1"}},{"id":"9","name":"Manami Oyobe","profile":{"board":"Yes","department":"プログラム室","region":"Obuse","sex":"0","non-STEM":"1"}},{"id":"10","name":"Tomoki Yasuda","profile":{"board":"Yes","department":"戦略策定局","region":"Obuse","sex":"1","non-STEM":"1"}},{"id":"11","name":"Ryugo Shimamura","profile":{"board":"Yes","department":"CEO","region":"Tokyo","sex":"1","non-STEM":"0"}},{"id":"12","name":"Shin Taniyoshi","profile":{"board":"Yes","department":"プログラム室","region":"Miyagi-Onagawa","sex":"1","non-STEM":"0"}},{"id":"13","name":"Kohta Shimada","profile":{"board":"Yes","department":"財務局","region":"Tokushima","sex":"1","non-STEM":"1"}},{"id":"14","name":"Mito Nishioka","profile":{"board":"Yes","department":"財務局","region":"Miyagi-Onagawa","sex":"0","non-STEM":"0"}},{"id":"15","name":"Nichina Matsuzaki","profile":{"board":"Yes","department":"広報・マーケティング局","region":"Tokushima","sex":"0","non-STEM":"1"}},{"id":"18","name":"Hiro Tomita","profile":{"board":"Yes","department":"執行局","region":"Tokushima","sex":"1","non-STEM":"1"}},{"id":"19","name":"Shiori Tazaki","profile":{"board":"Yes","department":"広報・マーケティング局","region":"Obuse","sex":"0","non-STEM":"1"}},{"id":"20","name":"Yuta Tani","profile":{"board":"Yes","department":"戦略策定局","region":"Obuse","sex":"1","non-STEM":"0"}},{"id":"21","name":"Seri Morikawa","profile":{"board":"Yes","department":"プログラム室","region":"Tokyo","sex":"0","non-STEM":"1"}},{"id":"22","name":"Kohki Arikawa","profile":{"board":"Yes","department":"プログラム室","region":"Tokyo","sex":"1","non-STEM":"1"}},{"id":"23","name":"Go Ogata","profile":{"board":"Yes","department":"広報・マーケティング局","region":"Miyagi-Onagawa","sex":"1","non-STEM":"0"}},{"id":"24","name":"Adachi Hikaru","profile":{"board":"Yes","department":"執行局","region":"Tokyo","sex":"1","non-STEM":"1"}},{"id":"25","name":"Mahiro Shimizu","profile":{"board":"Yes","department":"プログラム室","region":"Tokushima","sex":"0","non-STEM":"1"}},{"id":"26","name":"Amon Otsuki","profile":{"board":"Yes","department":"戦略策定局","region":"Miyagi-Onagawa","sex":"1","non-STEM":"0"}},{"id":"27","name":"Suono Fujii","profile":{"board":"Yes","department":"プログラム室","region":"Tokushima","sex":"0","non-STEM":"1"}},{"id":"28","name":"Hazuki Nishioka","profile":{"board":"Yes","department":"財務局","region":"Tokushima","sex":"0","non-STEM":"1"}},{"id":"29","name":"Yui Naito","profile":{"board":"Yes","department":"プログラム室","region":"Miyagi-Onagawa","sex":"0","non-STEM":"1"}},{"id":"30","name":"Keitaro Nishijima","profile":{"board":"No","department":"財務局","region":"Tokyo","sex":"1","non-STEM":"0"}},{"id":"31","name":"Rie Shiomitsu","profile":{"board":"No","department":"戦略策定局（IT）","region":"Obuse","sex":"0","non-STEM":"1"}},{"id":"32","name":"Misaki Chada","profile":{"board":"No","department":"人事局（高校生対応）","region":"Obuse","sex":"0","non-STEM":"0"}},{"id":"33","name":"Rio Yamamoto","profile":{"board":"No","department":"財務局","region":"Obuse","sex":"0","non-STEM":"1"}},{"id":"34","name":"Hikaru Mizuta","profile":{"board":"No","department":"戦略策定局（大学生研修）","region":"Miyagi-Onagawa","sex":"1","non-STEM":"1"}},{"id":"35","name":"Shoki Shigemoto","profile":{"board":"No","department":"プログラム室","region":"Obuse","sex":"1","non-STEM":"0"}},{"id":"36","name":"Ziying An","profile":{"board":"No","department":"プログラム室","region":"Tokyo","sex":"1","non-STEM":"1"}},{"id":"37","name":"Kodai Maki","profile":{"board":"No","department":"プログラム室","region":"Tokyo","sex":"1","non-STEM":"1"}},{"id":"38","name":"Akiko Takeda","profile":{"board":"No","department":"人事局（海外大学生対応）","region":"Tokushima","sex":"0","non-STEM":"0"}},{"id":"39","name":"Enya Toyama","profile":{"board":"No","department":"人事局（高校生対応）","region":"Obuse","sex":"0","non-STEM":"1"}},{"id":"40","name":"Arashi Katsuda","profile":{"board":"No","department":"プログラム室","region":"Tokushima","sex":"1","non-STEM":"1"}},{"id":"41","name":"Kenta Yoshii","profile":{"board":"No","department":"財務局","region":"Miyagi-Onagawa","sex":"1","non-STEM":"1"}},{"id":"42","name":"Shiori Yamada","profile":{"board":"No","department":"プログラム室","region":"Obuse","sex":"0","non-STEM":"1"}},{"id":"43","name":"Masami Kudo","profile":{"board":"No","department":"広報局（イベント）","region":"Obuse","sex":"0","non-STEM":"1"}},{"id":"44","name":"Risa Furuya","profile":{"board":"No","department":"広報局（イベント）","region":"Tokyo","sex":"0","non-STEM":"1"}},{"id":"45","name":"Hiromu Tanakai","profile":{"board":"No","department":"広報局（写真）","region":"Tokushima","sex":"1","non-STEM":"1"}},{"id":"46","name":"Akari Nishida","profile":{"board":"No","department":"人事局（海外大学生対応）","region":"Miyagi-Onagawa","sex":"0","non-STEM":"0"}},{"id":"47","name":"Hidetaka Kawada","profile":{"board":"No","department":"人事局（海外大学生対応）","region":"Obuse","sex":"1","non-STEM":"1"}},{"id":"48","name":"Kaita Yamada","profile":{"board":"No","department":"プログラム室","region":"Obuse","sex":"1","non-STEM":"1"}},{"id":"49","name":"Yumeka Tanabe","profile":{"board":"No","department":"プログラム室","region":"Tokyo","sex":"0","non-STEM":"1"}},{"id":"50","name":"Katsutoshi Hori","profile":{"board":"No","department":"プログラム室","region":"Tokushima","sex":"1","non-STEM":"0"}},{"id":"51","name":"Akira To","profile":{"board":"No","department":"戦略策定局（IT）","region":"Tokyo","sex":"1","non-STEM":"1"}},{"id":"52","name":"Naotoshi Tani","profile":{"board":"No","department":"財務局","region":"Tokushima","sex":"1","non-STEM":"1"}},{"id":"53","name":"Sachiko Yamaguchi","profile":{"board":"No","department":"人事局（高校生対応）","region":"Miyagi-Onagawa","sex":"0","non-STEM":"1"}},{"id":"54","name":"Maho Fujimoto","profile":{"board":"No","department":"広報局（イベント）","region":"Tokushima","sex":"0","non-STEM":"1"}},{"id":"55","name":"Sae kawakami","profile":{"board":"No","department":"プログラム室","region":"Obuse","sex":"0","non-STEM":"1"}},{"id":"56","name":"takahi Ni","profile":{"board":"No","department":"プログラム室","region":"Tokyo","sex":"1","non-STEM":"0"}},{"id":"57","name":"Miyu Yamanaka","profile":{"board":"No","department":"戦略策定局（大学生研修）","region":"Tokyo","sex":"0","non-STEM":"1"}},{"id":"58","name":"Nao Kuno","profile":{"board":"No","department":"広報局（クリエイティブ）","region":"Tokushima","sex":"0","non-STEM":"1"}},{"id":"59","name":"Tatsuya Inomata","profile":{"board":"No","department":"プログラム室","region":"Miyagi-Onagawa","sex":"1","non-STEM":"0"}},{"id":"60","name":"Ryoga Tsukamoto","profile":{"board":"No","department":"プログラム室","region":"Miyagi-Onagawa","sex":"1","non-STEM":"1"}},{"id":"61","name":"Yuta Inukai","profile":{"board":"No","department":"プログラム室","region":"Tokyo","sex":"1","non-STEM":"1"}},{"id":"62","name":"Hugo Ichioka","profile":{"board":"No","department":"プログラム室","region":"Tokyo","sex":"1","non-STEM":"1"}},{"id":"63","name":"Tatuwaki Nakagawa","profile":{"board":"No","department":"人事局（高校生対応）","region":"Tokyo","sex":"1","non-STEM":"0"}},{"id":"64","name":"Ryuichiro Sonoda","profile":{"board":"No","department":"財務局","region":"Obuse","sex":"1","non-STEM":"1"}},{"id":"65","name":"Yuxiang Weng","profile":{"board":"No","department":"戦略策定局（コミュニティマネジメント）","region":"Tokyo","sex":"1","non-STEM":"1"}},{"id":"66","name":"Hinako Nakamura","profile":{"board":"No","department":"プログラム室","region":"Obuse","sex":"0","non-STEM":"1"}},{"id":"67","name":"Toi Kaifu","profile":{"board":"No","department":"プログラム室","region":"Tokushima","sex":"1","non-STEM":"0"}},{"id":"68","name":"Yuka Inomata","profile":{"board":"No","department":"プログラム室","region":"Obuse","sex":"0","non-STEM":"1"}},{"id":"69","name":"Ryoya Yamamoto","profile":{"board":"No","department":"財務局","region":"Tokushima","sex":"1","non-STEM":"1"}},{"id":"70","name":"Saki Tanii","profile":{"board":"No","department":"人事局（高校生対応）","region":"Tokushima","sex":"0","non-STEM":"0"}},{"id":"71","name":"Himeka Watanabe","profile":{"board":"No","department":"広報局（イベント）","region":"Miyagi-Onagawa","sex":"0","non-STEM":"0"}},{"id":"72","name":"Koyomi Taguchi","profile":{"board":"No","department":"プログラム室","region":"Miyagi-Onagawa","sex":"0","non-STEM":"1"}},{"id":"73","name":"Yuki Ushida","profile":{"board":"No","department":"人事局（高校生対応）","region":"Tokushima","sex":"0","non-STEM":"1"}},{"id":"74","name":"Hanna Kawasaki","profile":{"board":"No","department":"広報局（クリエイティブ）","region":"Obuse","sex":"0","non-STEM":"1"}},{"id":"75","name":"Tomoaki Ban","profile":{"board":"No","department":"広報局（メディア）","region":"Obuse","sex":"1","non-STEM":"1"}},{"id":"76","name":"Riku Smriga","profile":{"board":"No","department":"人事局（高校生対応）","region":"Obuse","sex":"1","non-STEM":"0"}},{"id":"77","name":"Keito Ono","profile":{"board":"No","department":"広報局（映像）","region":"Tokushima","sex":"1","non-STEM":"1"}},{"id":"78","name":"Kyosuke Kikuchi","profile":{"board":"No","department":"人事局（高校生対応）","region":"Miyagi-Onagawa","sex":"1","non-STEM":"1"}},{"id":"79","name":"Keitaro Mochizuki","profile":{"board":"No","department":"戦略策定局（コミュニティマネジメント）","region":"Obuse","sex":"1","non-STEM":"1"}},{"id":"80","name":"Tomoshi Ishida","profile":{"board":"No","department":"プログラム室","region":"Tokyo","sex":"1","non-STEM":"0"}},{"id":"81","name":"Naoto Okuyama","profile":{"board":"No","department":"人事局（高校生対応）","region":"Tokyo","sex":"1","non-STEM":"1"}},{"id":"82","name":"Kanako Yamagami","profile":{"board":"No","department":"人事局（高校生対応）","region":"Tokyo","sex":"0","non-STEM":"1"}},{"id":"83","name":"Yusuke Nakamura","profile":{"board":"No","department":"人事局（高校生対応）","region":"Tokyo","sex":"1","non-STEM":"0"}},{"id":"84","name":"Kahi Sugata","profile":{"board":"No","department":"広報局（メディア）","region":"Tokyo","sex":"0","non-STEM":"1"}},{"id":"85","name":"Yoshiki Masuda","profile":{"board":"No","department":"戦略策定局（IT）","region":"Tokushima","sex":"1","non-STEM":"0"}},{"id":"86","name":"Ryunosuke Hirata","profile":{"board":"No","department":"人事局（高校生対応）","region":"Tokushima","sex":"1","non-STEM":"1"}},{"id":"87","name":"Makita Yoshihiro","profile":{"board":"No","department":"戦略策定局（大学生研修）","region":"Tokushima","sex":"1","non-STEM":"1"}},{"id":"88","name":"Shotaro Hiranuma","profile":{"board":"No","department":"プログラム室","region":"Tokushima","sex":"1","non-STEM":"0"}},{"id":"89","name":"Chiemi Yoshida","profile":{"board":"No","department":"人事局（海外大学生対応）","region":"Tokushima","sex":"0","non-STEM":"1"}},{"id":"90","name":"Yukari Kawasaki","profile":{"board":"No","department":"戦略策定局（コミュニティマネジメント）","region":"Miyagi-Onagawa","sex":"0","non-STEM":"1"}},{"id":"91","name":"Sasha Fukumoto","profile":{"board":"No","department":"戦略策定局（コミュニティマネジメント）","region":"Tokushima","sex":"0","non-STEM":"1"}},{"id":"92","name":"Ao Sasaki","profile":{"board":"No","department":"財務局","region":"Tokyo","sex":"1","non-STEM":"0"}},{"id":"93","name":"Mioko Fukuda","profile":{"board":"No","department":"広報局（メディア）","region":"Miyagi-Onagawa","sex":"0","non-STEM":"1"}},{"id":"94","name":"Yuji Ishikawa","profile":{"board":"No","department":"広報局（クリエイティブ）","region":"Miyagi-Onagawa","sex":"1","non-STEM":"0"}},{"id":"95","name":"Mano Fukui","profile":{"board":"No","department":"NO_DEPARTMENT","region":"","sex":"0","non-STEM":"1"}},{"id":"95","name":"Haruka Yasuda","profile":{"board":"No","department":"プログラム室","region":"Tokyo","sex":"0","non-STEM":"1"}},{"id":"96","name":"Yu Uemura","profile":{"board":"No","department":"広報局（メディア）","region":"Tokyo","sex":"1","non-STEM":"1"}},{"id":"97","name":"Yuta Hikoso","profile":{"board":"No","department":"NO_DEPARTMENT","region":"","sex":"1","non-STEM":"1"}},{"id":"97","name":"Takae Arasaki","profile":{"board":"No","department":"広報局（映像）","region":"Tokyo","sex":"1","non-STEM":"0"}},{"id":"98","name":"Mayu Kawada","profile":{"board":"No","department":"プログラム室","region":"Miyagi-Onagawa","sex":"0","non-STEM":"1"}},{"id":"99","name":"Mayu Takahata","profile":{"board":"No","department":"プログラム室","region":"Miyagi-Onagawa","sex":"0","non-STEM":"1"}}],"significanceScale":["board","department","region","sex","non-STEM"]}';
+  return JSON.parse(data);
+}
 </script>
 </html>
+
+<!-- NEXT -->
+<!-- red, blue, yellowのクラススタイルが反映されない問題を解決する -->
+<!-- selectにメンバーデータを投入する -->
+<!-- selectがクリックされたらそのグループの -->

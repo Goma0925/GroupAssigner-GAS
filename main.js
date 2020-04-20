@@ -1,5 +1,6 @@
+
 function main() {
-  //-----Input Data settings--
+  //-----Input Data settings--Hi
   var loader = new DataLoader();
   var memberDataSheetName = "スクリプト用データベース"
   var userDataSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(memberDataSheetName);
@@ -24,3 +25,15 @@ function main() {
 
   //AMON NEXT: クリックした時の関数トリガーを書く
 };
+
+function getInitialData() {
+  Logger.log("loadFromSpreadsheet");
+  var loader = new DataLoader();
+  var initialData = {
+    colNum: 5,
+    users: loader.loadMembers(GLOBAL_VARS.userDataSheet, GLOBAL_VARS.dataRange),
+    significanceScale: loader.loadAttributeHeaders(GLOBAL_VARS.userDataSheet, GLOBAL_VARS.dataRange)
+  };
+  Sp.log(3, "initialData", JSON.stringify(initialData));
+  return JSON.stringify(initialData);
+}
