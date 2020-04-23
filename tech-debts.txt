@@ -1,0 +1,2 @@
+//In getSelectedMemberInCol()
+select要素からではなく、div要素のinnertextから直接値を取得している

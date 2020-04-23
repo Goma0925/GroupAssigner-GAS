@@ -8,4 +8,12 @@ function Person(id, name, profile){
   //profileフォーマット:
   //1	Yuna Mizutani	TRUE	1	Yes	執行局	Tokyo
   //→profile = {board: "Yes", department:"執行局",...}
+  this.toString = function(){
+    var string = "{id="+this.id+", "+ "name="+this.name;
+    for (var attr in profile){
+      string += ","+attr+"="+this.profile[attr];
+    }
+    string += "}\n"
+    return string;
+  };
 };

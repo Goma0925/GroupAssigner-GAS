@@ -1,13 +1,47 @@
 function Processor(){
-  this.getNonMatchMembers = function(allMembers, preSelectedMembers, significanceScale){
+  this.getNonMatchMembers = function(allMembersLeft, preSelectedMembers, significanceScale){
     // params:
     // allMembers: List[Person, Person]
     // preSelectedMembers:  List[Person, Person]
     // significance:  List[String, String]  インデックス0が一番重要なデータ項目の見出しString
-    // Person class signiture example: {name: "Yoshiki", user_id:"3", profile:{department:"戦略策定室",...}} 
+    // Person class signiture example: {name: "Yoshiki", user_id:"3", profile:{department:"戦略策定室",...}}
     // 1. 全属性がマッチしない人を探す
-    var nonMatchMembers = [["全てのattributeがマッチしなかったメンバーのリスト"], ["一つを除いてattributeがマッチしなかったメンバーリスト"]];
-    
+    var tempAllMembersLeft = allMembersLeft; //copying so that we don't change the original
+
+	var nonMatchMembers = []; //we return this in the end
+
+	for(var attr in significanceScale){
+
+		for(var person in preSelectedMembers){
+			var tempArray = [];
+			tempArray.push(person["profile"][attr]);
+		}
+
+		var existingCharacteritics = tempArray.filter(onlyUnique); //taking out distinct existing characteristics in a row
+
+		var nonMatched = []; //次のステージに進める人たち
+		var matched = []; //fall out組
+
+		for(var person in tempAllMembersLeft){
+
+			if(existingCharacteritics.includes(person["profile"][attr])){ //if the characteristic is already selected in the same row
+				matched.push(person);
+			}
+
+			else{
+				nonMatched.push(person);
+			}
+
+		}
+
+		tempAllMembersLeft = nonMatched;
+		nonMatchMembers.unshift(matched);
+
+	}
+
+	nonMatchMembers.unshift(tempAllMembersLeft); //１つもattrが被ってない奇跡組をpush
+
+	return nonMatchMembers
     //!!!!実装前に読んでほしい(byあもん)!!!!
     //getNonMatchMembers()の返り値は、単純なarrayじゃなくて、2D arrayにしてもらえる？
     //例)
@@ -23,6 +57,11 @@ function Processor(){
 
 
     //return [[Person, Person], [Person, Person],...] 2D array
-    return nonMatchMembers;
   };
+
+  this.onlyUnique = function(value, index, self) {
+    	return self.indexOf(value) === index;
+  };
+
+
 };
